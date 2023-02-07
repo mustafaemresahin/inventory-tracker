@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<h>This is where you can see the user information</h>
+<input type="button" class="btn btn-primary" value="Go Back" onClick="javascript:history.go(-1);">
+{% endblock %}

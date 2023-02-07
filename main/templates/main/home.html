@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% if message %}
+<p style="color:red">{{message}}</p>
+{% endif %}
+{% if not user.username %}
+<div style="padding-top:25px;"></div>
+<div class="card-header" style="background-color:rgb(152, 231, 255); border-radius: 20px;">
+    <h3 style="color:rgb(255, 53, 53)">You are not logged in!</h3>
+    <h5>You need to login to create inventories and add products.</h5>
+    <form method="get" action="/login">
+        <button type="submit" class="btn btn-info" style="display:inline-block;">Login</button>
+    </form>
+    
+</div>
+<div style="padding-top:25px;"></div>
+
+{% endif %}
+<div style="padding-top:25px;"></div>
+<div>
+    <h2>Inventories</h2>
+    <hr></hr>
+</div>
+{% for post in posts %}
+
+<div class="card mt-2" 6>
+    <div class="card-header"><strong>
+        {% if post.author.username != "mustafa" %}
+            @{{post.author.username}}
+        {% else %}
+            @admin
+        {% endif %}
+    </strong></div>
+    <div class="card-body d-flex flex-row justify-content-between">
+        <div>
+            <h5 class="card-title">{{post.title}}</h5>
+            <p>{{post.description}}</p>
+        </div>
+        <div>
+            <form method="get" action="/{{post.author.username}}/{{post.title}}/">
+                <button type="submit" class="btn btn-warning">View</button>
+            </form>
+            <div style= "height:10px;"></div>
+            {% if user == post.author or user.username == "mustafa" %}
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" name="post-id" value="{{post.id}}">Delete</button>
+                
+            </form>
+            {% endif %}
+        </div>
+    </div> 
+    <div class="card-footer text-muted">
+        Created at {{post.created_at}}
+    </div>
+</div>
+<br></br>
+{% empty %}
+<p style="font-size:30px;"><strong>Currently there is no inventories to view.</strong></p>
+<form method="get" action="/create">
+    <button type="submit" class="btn btn-success">Create Inventory</button>
+</form>
+{% endfor %}
+{% if user.username and posts %}
+<hr></hr>
+<form method="get" action="/create">
+    <p style="font-size:20px;"><strong>Want to create more inventories?</strong></p>
+    <button type="submit" class="btn btn-success">Create</button>
+</form>
+{% endif %}
+<br></br>
+<br></br>
+{% endblock %}
+{% block footer %}
+
+{% endblock %}

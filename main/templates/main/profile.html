@@ -1,0 +1,265 @@
+{% extends 'main/base.html' %}
+{% block title %}Profile Settings{% endblock %}
+{% block style %}
+<style>
+    form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 30px 0 rgba(0,0,0,0.19);
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+
+
+</style>
+  
+{% endblock %}
+{% block content %}
+
+
+
+
+<div style="padding-top:25px;"></div>
+<h1 style = "text-align:center;">Profile Settings</h1>
+<div style="padding-top:25px;"></div>
+
+{% if user.username == "mustafa" %}
+    {% for p in profile %}
+          <hr></hr>
+          <br></br>
+          <form method="POST" action="/profile/">
+            {% csrf_token %}
+            <label for="first">First Name:</label><br>
+            <input type="text" id="first" name="first" value="{{ p.name }}"><br>
+            <label for="last">Last Name:</label><br>
+            <input type="text" id="last" name="last" value="{{ p.last }}"><br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" value="{{ p.user }}"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="{{ p.email }}"><br>
+            
+            
+            <input type="submit" value="Save">
+          </form>
+
+          <form method="GET" action="/password_change/">
+            {% csrf_token %}
+            
+            <input type="submit" value="Password Change">
+          </form>
+          <br></br>
+          
+          {% endfor %}
+
+
+
+
+
+    {% else %}
+        {% for p in profile %}
+        {% if user.username == p.user %}
+        <hr></hr>
+        <br></br>
+        <form method="POST" action="/profile/">
+          {% csrf_token %}
+          <label for="first">First Name:</label><br>
+          <input type="text" id="first" name="first" value="{{ p.name }}"><br>
+          <label for="last">Last Name:</label><br>
+          <input type="text" id="last" name="last" value="{{ p.last }}"><br>
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" name="username" value="{{ p.user }}"><br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" value="{{ p.email }}"><br>
+          
+          
+          <input type="submit" value="Save">
+        </form>
+
+        <form method="GET" action="/password_change/">
+          {% csrf_token %}
+          
+          <input type="submit" value="Password Change">
+        </form>
+        <br></br>
+        {% endif %}
+        {% endfor %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
