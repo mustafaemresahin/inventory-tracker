@@ -24,6 +24,7 @@ def home(request):
 
     return render(request, 'main/home.html', {"posts": posts})
 
+#@login_required(login_url="/login")
 def main(request):
     return render(request, 'main/main.html')
 
