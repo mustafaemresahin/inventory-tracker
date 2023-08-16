@@ -26,7 +26,8 @@ def home(request):
 
 #@login_required(login_url="/login")
 def main(request):
-    return render(request, 'main/main.html')
+    return redirect('/home')
+    #return render(request, 'main/main.html')
 
 #@login_required(login_url="/login")
 def view(request, auth, name):
