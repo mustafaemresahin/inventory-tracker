@@ -160,3 +160,5 @@ STATICFILES_DIRS = [
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails" 
 django_heroku.settings(locals()) 
+
+CSRF_TRUSTED_ORIGINS = ['inventorytracker-app-97d442ef0b33.herokuapp.com']
