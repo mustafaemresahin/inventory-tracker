@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-c(8$zj6m&*y@m$y3+u61b!rgd4c141v4+p)4h&cx-1e0s&bkjq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://inventorytracker-app-97d442ef0b33.herokuapp.com/',
+                 ]
 
 
 # Application definition
