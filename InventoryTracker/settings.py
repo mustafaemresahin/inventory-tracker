@@ -29,7 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'https://inventorytracker-app-97d442ef0b33.herokuapp.com/',
-                 ]
+    'https://inventory-tracker.mustafaemresahin.com',
+    ]
 
 
 # Application definition
@@ -163,4 +164,5 @@ django_heroku.settings(locals())
 
 CSRF_TRUSTED_ORIGINS = [
     'https://inventorytracker-app-97d442ef0b33.herokuapp.com',
+    'https://inventory-tracker.mustafaemresahin.com',
     ]
