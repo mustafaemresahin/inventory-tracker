@@ -10,10 +10,15 @@
 <div class="card-header" style="background-color:rgb(152, 231, 255); border-radius: 20px;">
     <h3 style="color:rgb(255, 53, 53)">You are not logged in!</h3>
     <h5>You need to login to create inventories and add products.</h5>
-    <form method="get" action="/login">
-        <button type="submit" class="btn btn-info" style="display:inline-block;">Login</button>
-    </form>
-    
+    <div style="display: flex; align-items: center;">
+        <form method="get" action="/login">
+            <button type="submit" class="btn btn-info">Login</button>
+        </form>
+        <p style="margin: 0 10px;">or</p>
+        <form method="get" action="/sign-up">
+            <button type="submit" class="btn btn-info">Register</button>
+        </form>
+    </div>
 </div>
 <div style="padding-top:25px;"></div>
 
