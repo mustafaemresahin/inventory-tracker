@@ -2,19 +2,14 @@
 {% block title %}History{% endblock %}
 {% block content %}
 <br></br>
-
 <h2>History</h2>
 {% if user.username == "mustafa" %}
     <form method="post" style="text-align:right">
         {% csrf_token %}
-        <button type="submit" onclick="myFunction()" class="btn btn-danger" name="h-id" value="all">Delete All History</button>
-                
+        <button type="submit" onclick="myFunction()" class="btn btn-danger" name="h-id" value="all">Delete All History</button>       
     </form>
 {% endif %}
 <hr></hr>
-
-
-
 {% for h in history %}
 <div class="card mt-2">
     <div class="card-header"><strong>{{h.title}}</strong>
@@ -24,18 +19,13 @@
             <form method="post">
                 {% csrf_token %}
                 <button type="submit" onclick="myFunction()" class="btn btn-danger" name="h-id" value="{{h.title}}">Delete</button>
-                
             </form>
             {% endif %}
         </div>
     </div>
-    
-    
 </div>
-
 {% empty %}
 <h2>No history data.</h2>
-
 {% endfor %}
 <br></br>
 <br></br>

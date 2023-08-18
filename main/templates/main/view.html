@@ -1,231 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block title %}Inventory View{% endblock %}
-{% block style %}
-<style>
-    button:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 30px 0 rgba(0,0,0,0.19);
-        }
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-}
-
-
-.footer {
-  position: relative;
-  width: 100%;
-  background: #3586ff;
-  min-height: 100px;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.social-icon,
-.menu {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
-}
-
-.social-icon__item,
-.menu__item {
-  list-style: none;
-}
-
-.social-icon__link {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-}
-.social-icon__link:hover {
-  transform: translateY(-10px);
-}
-
-.menu__link {
-  font-size: 1.2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-  text-decoration: none;
-  opacity: 0.75;
-  font-weight: 300;
-}
-
-.menu__link:hover {
-  opacity: 1;
-}
-
-.footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-.wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url("https://i.ibb.co/wQZVxxk/wave.png");
-  background-size: 1000px 100px;
-}
-
-.wave#wave1 {
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
-  animation: animateWaves 4s linear infinite;
-}
-
-.wave#wave2 {
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 10px;
-  animation: animate 4s linear infinite !important;
-}
-
-.wave#wave3 {
-  z-index: 1000;
-  opacity: 0.2;
-  bottom: 15px;
-  animation: animateWaves 3s linear infinite;
-}
-
-.wave#wave4 {
-  z-index: 999;
-  opacity: 0.7;
-  bottom: 20px;
-  animation: animate 3s linear infinite;
-}
-
-@keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
-}
-
-@keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
-}
-    .btn span.icon{
-        background: url(home-icon.png) no-repeat;
-        float: left;
-        width: 10px;
-        height: 40px;
-    }
-    button:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 30px 0 rgba(0,0,0,0.19);
-    }
-    #products {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#products td, #products th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color: #dfdfdf;}
-#products tr:hover {background-color: rgb(196, 33, 33);}
-
-#products th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #019e65;
-  color: white;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-
-
-#myInput {
-    border: 1px solid #ddd;
-    border-radius: 18px;
-  background-image: "{% static 'searchicon.png' %}";
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 40%;
-  font-size: 16px;
-  padding: 12px 20px 12px 10px;
-  border: 1px solid rgb(179, 179, 179);
-  margin-bottom: 12px;
-}
-
-#myTable {
-    border: 1px solid #ddd;
-    border-radius: 18px;
-  border-radius: 18px;
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
-
-#myTable th, #myTable td {
-    border: 1px solid rgb(167, 167, 167);
-  text-align: left;
-  padding: 8px;
-}
-
-
-
-#myTable tr {
-  border-bottom: 1px solid rgb(255, 255, 255);
-}
-
-tr:hover {
-  background-color: #c5c5c5;
-}
-tr.header{
-    background-color: #ffffff;
-}
-
-.action{
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-h3 span {
-    font-size: 22px;
-}
-h3 input.search-input {
-    width: 500px;
-    margin-left: auto;
-    float: left
-}
-
-</style>
-{% endblock %}
 {% block content %}
 {% if not user.username %}
 <div style="padding-top:25px;"></div>
@@ -235,17 +10,14 @@ h3 input.search-input {
     <form method="get" action="/login">
         <button type="submit" class="btn btn-info" style="display:inline-block;">Login</button>
     </form>
-    
 </div>
 {% endif %}
 <div style="padding-top:25px;"></div>
-
 <form method="post" action="/home/">
     <span class="icon">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">Home</button>
     </span>
-    
 </form>
 <div style="text-align:right">
     {% if user.username == post.author.username or user.username == "mustafa" %}
@@ -263,9 +35,7 @@ h3 input.search-input {
         </form>
     {% endif %}
 </div>
-
 <div style="padding-top:25px;"></div>
-
 <div style="text-align:center; background-color: #84b5ff; border-radius:15px; border-color: #3586ff;">
     <div style="text-align:left; padding-left: 10px; padding-top:10px; font-size: 20px;">
         {% if post.author.username != "mustafa" %}
@@ -274,18 +44,14 @@ h3 input.search-input {
             Created by Admin
         {% endif %}
     </div>
-    
     <div>
         <div>
             <h3>{{post.title}}</h3>
             <hr></hr>
-            
         </div>
     </div>
 </div>
-
 <div class="container">
-    
     <table class="table table-striped mt32 customers-list">
         <thead>
             <tr class="header">
@@ -321,13 +87,11 @@ h3 input.search-input {
                         </td>
                     </tr>
             {% endfor %}
-          
         </tbody>
     </table>
 </div>
 {% if products %}
 <div>
-    
 </div>
 {% else %}
     <div style="text-align:center;">
@@ -340,17 +104,12 @@ h3 input.search-input {
     </div>
 {% endif %}
 <hr></hr>
-
 <button id="show-search" class="btn btn-primary">Search</button>
 <br></br>
 <h3 style="text-align:center">
     <input placeholder = "Search..." style="display:none;"  type="search" id="myInput" class="form-control search-input" data-table="customers-list"/>
     <div style="padding-top:25px;"></div>
-
 </h3>
-
-
-
 <script>
     document.getElementById('show-search').addEventListener('click', function() {
   var input = document.getElementById('myInput');
@@ -378,18 +137,11 @@ h3 input.search-input {
         }       
       }
     }
-
-
-
-
-
-
     (function(document) {
             'use strict';
 
             var TableFilter = (function(myArray) {
                 var search_input;
-
                 function _onInputSearch(e) {
                     search_input = e.target;
                     var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
@@ -403,7 +155,6 @@ h3 input.search-input {
                         });
                     });
                 }
-
                 return {
                     init: function() {
                         var inputs = document.getElementsByClassName('search-input');
@@ -413,15 +164,12 @@ h3 input.search-input {
                     }
                 };
             })(Array.prototype);
-
             document.addEventListener('readystatechange', function() {
                 if (document.readyState === 'complete') {
                     TableFilter.init();
                 }
             });
-
         })(document);
     </script>
-
 <br></br>
 {% endblock %}
