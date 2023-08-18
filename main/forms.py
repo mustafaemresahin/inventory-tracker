@@ -22,8 +22,7 @@ class Create(forms.ModelForm):
 
 
 class Add(forms.ModelForm):
-    picture = forms.ImageField(required=False)
     class Meta:
         model = Product
         
-        fields = ["upc", "description", "count", "manufacturer", "price", "picture"]
+        fields = ["upc", "description", "count", "manufacturer", "price"]

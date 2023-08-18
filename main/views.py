@@ -132,11 +132,11 @@ def add(request, auth, name):
         if form.is_valid():
             product = form.save(commit=False)
             product.author = request.user
-            product.inv = name
-            product.total = float(product.count) * float(product.price)
+            product.inventory = str(name)
+            product.total = product.count * product.price
             product.save()
             h = History()
-            h.title = str(product.description) + " " + str(product.upc) + " is created with an initial count of " + str(product.count)
+            h.title = str(product.description) + " " + str(product.upc) + " is created with an initial count of " + str(product.count) + " in inventory " + name
             h.save()
             i = "/"+str(auth)+"/"+str(name)+"/"
             return redirect(i)

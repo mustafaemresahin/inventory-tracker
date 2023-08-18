@@ -289,7 +289,7 @@ h3 input.search-input {
     <table class="table table-striped mt32 customers-list">
         <thead>
             <tr class="header">
-                <th>Picture</th>
+                <!--<th>Picture</th>-->
                 <th>Description</th>
                 <th>Manufacturer</th>
                 <th>UPC</th>
@@ -302,7 +302,7 @@ h3 input.search-input {
         <tbody>
             {% for p in products %}
             <tr>
-                <td>{{p.picture}}</td>
+                <!--<td>{{p.picture}}</td>-->
                 <td><a href="/{{post.author.username}}/{{post.title}}/{{p.id}}/">{{p.description}}</a></td>
                 <td>{{p.manufacturer}}</td>
                 <td>{{p.upc}}</td>

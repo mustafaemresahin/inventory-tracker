@@ -22,13 +22,12 @@ class Product(models.Model):
     description = models.TextField(max_length=100)
     count = models.IntegerField()
     upc = models.IntegerField()
-    manufacturer = models.CharField(max_length=100)
-    inventory = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    total = models.DecimalField(default = 0, max_digits=5, decimal_places=2)
-    picture = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    manufacturer = models.TextField(max_length=100)
+    inventory = models.TextField()
+    price = models.IntegerField()
+    total = models.IntegerField()
     def __str__(self):
-        return "p"
+        return self.description
 
 
 class History(models.Model):
