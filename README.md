@@ -6,7 +6,6 @@ This Django-based project provides a basic inventory management system with user
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Live Server](#live-server)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -60,10 +59,6 @@ Before you begin, ensure you have met the following requirements:
 - Python [Install Python](https://www.python.org/downloads/)
 - Django [Install Django](https://docs.djangoproject.com/en/stable/intro/install/)
 
-## Live Server
-You can access the live server for this project by visiting: https://inventorytracker-app-97d442ef0b33.herokuapp.com/
-
-Please note that this link will take you to the deployed version of the inventory management system, where you can register, log in, manage inventory items, view and update your profile, and interact with the features described in the project README.
 
 ### Important Note
 Please be aware that this project is currently under development, and not all features may be fully functional at this time. As a result, you may encounter bugs or unexpected behavior while using the system. We appreciate your understanding and patience as we work to improve and refine the project.
