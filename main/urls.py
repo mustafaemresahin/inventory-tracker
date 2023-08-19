@@ -14,3 +14,5 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('<str:auth>/<str:name>/<int:product>/', views.product, name="product"),
 ]
+
+#handler404 = 'main.views.custom_404'
