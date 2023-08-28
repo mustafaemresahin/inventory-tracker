@@ -72,12 +72,12 @@ Thank you for your interest and support in this project!
 1. Clone the project repository:
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/mustafaemresahin/inventory-tracker.git
 ```
 2. Navigate to the project directory:
 
 ```bash
-cd <project_directory>
+cd inventory-tracker
 ```
 
 3. Install project dependencies:
