@@ -27,7 +27,7 @@ This Django-based project provides a basic inventory management system with user
    - Products are listed based on the number of units available.
 
 4. History Tracking:
-   - Deleted inventory items are recorded in a history log.
+   - Deleted or added inventories and inventory items, and created users are recorded in a history log.
 
 5. User Profile:
    - Users can view and update their profile information.
@@ -61,11 +61,7 @@ Before you begin, ensure you have met the following requirements:
 
 
 ### Important Note
-Please be aware that this project is currently under development, and not all features may be fully functional at this time. As a result, you may encounter bugs or unexpected behavior while using the system. We appreciate your understanding and patience as we work to improve and refine the project.
-
-If you come across any issues or have suggestions for improvement, we encourage you to contribute to the project by following the guidelines outlined in the Contributing section of the README. Your feedback and contributions will be valuable in helping us make this inventory management system a robust and reliable tool.
-
-Thank you for your interest and support in this project!
+Please be aware that this project is currently under development, and not all features may be fully functional at this time. As a result, you may encounter bugs or unexpected behavior while using the system.
 
 ## Installation
 
