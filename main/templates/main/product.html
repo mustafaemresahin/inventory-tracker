@@ -6,11 +6,40 @@
     <button type="submit" class="btn btn-primary">Go Back</button>
 </form>
 <br></br>
+<!--
 <p>UPC: {{view.upc}}</p>
 <p>Description:   {{view.description}}</p>
 <p>Manufacturer:   {{view.manufacturer}}</p>
 <p>Count:   {{view.count}}</p>
 <p>Price:   {{view.price}}</p>
 <p>Total price:   {{view.total}}</p>
-<!--<p>picture    {{view.picture}}</p>-->
+<p>picture    {{view.picture}}</p>
+-->
+
+<div class="container">
+    <table class="table table-striped mt32 customers-list">
+        <thead>
+            <tr class="header">
+                <th>Description</th>
+                <th>Manufacturer</th>
+                <th>UPC</th>
+                <th>Count</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{view.description}}</a></td>
+                <td>{{view.manufacturer}}</td>
+                <td>{{view.upc}}</td>
+                <td>{{view.count}} Each</td>
+                <td>$ {{view.price}}</td>
+                <td>$ {{view.total}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 {% endblock %}
