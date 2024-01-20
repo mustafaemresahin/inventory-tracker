@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, Create, Add
 from django.contrib.auth import login, logout, authenticate
 from .models import Inventory, Product, History, Profile
+import datetime
 
 # custom 404 view
 def custom_404(request, exception):
@@ -81,6 +82,7 @@ def create(request):
             inventory.save()
             h = History()
             h.title = inventory.title + " - " + inventory.description + " is created"
+            h.created_at = datetime.datetime.now()
             h.save()
             p = "/" + inventory.author.username + "/" + inventory.title
             return redirect(p)
@@ -92,7 +94,6 @@ def create(request):
 @login_required(login_url="/login")
 def history(request):
     history = History.objects.all()
-    history.reverse()
     if request.method == "POST":
         h_id = request.POST.get("h-id")
         if h_id != "all":
