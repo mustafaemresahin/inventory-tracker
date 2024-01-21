@@ -1,32 +1,40 @@
 {% extends 'main/base.html' %}
 {% block title %}Profile Settings{% endblock %}
 {% block content %}
+
+{% if user.username == "mustafa" %}
+
 <div style="padding-top:25px;"></div>
+<h1 style = "text-align:center;">All User Profiles</h1>
+<div style="padding-top:25px;"></div>
+
+            <div class="container">
+              <table class="table table-striped mt32 customers-list">
+                  <thead>
+                      <tr class="header">
+                          <!--<th>Picture</th>-->
+                          <th>Username</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for p in profile %}
+                      <tr>
+                          <td>{{p.user}}</td>
+                          <td>{{p.name}}</td>
+                          <td>{{p.last}}</td>
+                          <td>{{p.email}}</td>
+                        </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+    {% else %}
+    <div style="padding-top:25px;"></div>
 <h1 style = "text-align:center;">Profile Settings</h1>
 <div style="padding-top:25px;"></div>
-{% if user.username == "mustafa" %}
-    {% for p in profile %}
-          <hr></hr>
-          <br></br>
-          <form method="POST" action="/profile/" class="profile">
-            {% csrf_token %}
-            <label for="first">First Name:</label><br>
-            <input type="text" id="first" name="first" value="{{ p.name }}"><br>
-            <label for="last">Last Name:</label><br>
-            <input type="text" id="last" name="last" value="{{ p.last }}"><br>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" value="{{ p.user }}"><br>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" value="{{ p.email }}"><br>
-            <input type="submit" value="Save">
-            <form method="GET" action="/password_change/">
-              {% csrf_token %}
-              <input type="submit" value="Password Change">
-            </form>
-          </form>
-          <br></br>
-          {% endfor %}
-    {% else %}
         {% for p in profile %}
         {% if user.username == p.user %}
         <hr></hr>
